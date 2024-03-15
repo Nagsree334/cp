@@ -1,0 +1,20 @@
+class Solution:
+    def nextLargerNodes(self, head: ListNode) -> List[int]:
+        res = []
+
+        temp = head
+
+        while temp is not None:
+            L = temp.next
+
+            while L is not None and L.val <= temp.val:
+                L = L.next
+
+            if L is None:
+                res.append(0)
+            else:
+                res.append(L.val)
+
+            temp = temp.next
+
+        return res
